@@ -4401,51 +4401,68 @@ function CountrySelect() {
 
   var countries = Object(_utils_useFetch__WEBPACK_IMPORTED_MODULE_2__["default"])('https://covid19.mathdro.id/api/countries');
   if (!countries) return null;
+  var countryArr = Object.entries(countries.countries).map(function (_ref) {
+    var _ref2 = Object(_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_ref, 2),
+        key = _ref2[0],
+        value = _ref2[1];
+
+    return {
+      name: "".concat(key),
+      code: "".concat(value)
+    };
+  });
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 19
     },
     __self: this
   }, __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 20
     },
     __self: this
   }, "Showing: ", country), __jsx("select", {
     onChange: function onChange(event) {
       return setCountry(event.target.value);
     },
+    defaultValue: {
+      name: country
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 21
     },
     __self: this
-  }, Object.entries(countries.countries).map(function (_ref) {
-    var _ref2 = Object(_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_ref, 2),
-        key = _ref2[0],
-        value = _ref2[1];
-
+  }, countryArr.map(function (country) {
     return __jsx("option", {
-      selected: country === countries.iso3[value],
-      value: countries.iso3[value],
-      key: key,
+      value: country.code,
+      key: country.name,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15
+        lineNumber: 25
       },
       __self: this
-    }, key);
+    }, country.name);
   })), __jsx(_Info__WEBPACK_IMPORTED_MODULE_3__["default"], {
     url: "https://covid19.mathdro.id/api/countries/".concat(country),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 30
     },
     __self: this
   }));
-}
+} // {
+//   Object.entries(countryArr).map(([key, value]) => (
+//     <option
+//       //   selected={country === countries.iso3[value]}
+//       value={countries.iso3[value]}
+//       key={key}>
+//       {key}
+//     </option>
+//   ));
+// }
 
 /***/ }),
 
@@ -4684,7 +4701,7 @@ function Index() {
       lineNumber: 8
     },
     __self: this
-  }, "World Wide:"), __jsx(_components_Info__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, "World Totals:"), __jsx(_components_Info__WEBPACK_IMPORTED_MODULE_1__["default"], {
     url: "https://covid19.mathdro.id/api/",
     __source: {
       fileName: _jsxFileName,
@@ -4723,7 +4740,7 @@ function useFetch(url) {
       info = _useState[0],
       setInfo = _useState[1];
 
-  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(),
+  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(null),
       error = _useState2[0],
       setError = _useState2[1];
 
@@ -4753,26 +4770,27 @@ function useFetch(url) {
             case 6:
               json = _context.sent;
               setInfo(json);
-              _context.next = 13;
+              setLoading(false);
+              _context.next = 15;
               break;
 
-            case 10:
-              _context.prev = 10;
+            case 11:
+              _context.prev = 11;
               _context.t0 = _context["catch"](0);
+              console.log(_context.t0);
               setError(_context.t0);
 
-            case 13:
+            case 15:
             case "end":
               return _context.stop();
           }
         }
-      }, null, null, [[0, 10]], Promise);
+      }, null, null, [[0, 11]], Promise);
     };
 
     fetchData();
-    setLoading(false);
   }, [url]);
-  return error, info;
+  return info;
 }
 
 /***/ }),

@@ -1795,43 +1795,60 @@ function CountrySelect() {
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('GBR');
   const countries = Object(_utils_useFetch__WEBPACK_IMPORTED_MODULE_1__["default"])('https://covid19.mathdro.id/api/countries');
   if (!countries) return null;
+  const countryArr = Object.entries(countries.countries).map(([key, value]) => {
+    return {
+      name: `${key}`,
+      code: `${value}`
+    };
+  });
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 19
     },
     __self: this
   }, __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 20
     },
     __self: this
   }, "Showing: ", country), __jsx("select", {
     onChange: event => setCountry(event.target.value),
+    defaultValue: {
+      name: country
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 21
     },
     __self: this
-  }, Object.entries(countries.countries).map(([key, value]) => __jsx("option", {
-    selected: country === countries.iso3[value],
-    value: countries.iso3[value],
-    key: key,
+  }, countryArr.map(country => __jsx("option", {
+    value: country.code,
+    key: country.name,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 25
     },
     __self: this
-  }, key))), __jsx(_Info__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, country.name))), __jsx(_Info__WEBPACK_IMPORTED_MODULE_2__["default"], {
     url: `https://covid19.mathdro.id/api/countries/${country}`,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 30
     },
     __self: this
   }));
-}
+} // {
+//   Object.entries(countryArr).map(([key, value]) => (
+//     <option
+//       //   selected={country === countries.iso3[value]}
+//       value={countries.iso3[value]}
+//       key={key}>
+//       {key}
+//     </option>
+//   ));
+// }
 
 /***/ }),
 
@@ -2067,7 +2084,7 @@ function Index() {
       lineNumber: 8
     },
     __self: this
-  }, "World Wide:"), __jsx(_components_Info__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, "World Totals:"), __jsx(_components_Info__WEBPACK_IMPORTED_MODULE_1__["default"], {
     url: "https://covid19.mathdro.id/api/",
     __source: {
       fileName: _jsxFileName,
@@ -2106,7 +2123,7 @@ function useFetch(url) {
   const {
     0: error,
     1: setError
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null);
   const {
     0: loading,
     1: setLoading
@@ -2120,15 +2137,16 @@ function useFetch(url) {
         const res = await fetch(url);
         const json = await res.json();
         setInfo(json);
+        setLoading(false);
       } catch (error) {
+        console.log(error);
         setError(error);
       }
     };
 
     fetchData();
-    setLoading(false);
   }, [url]);
-  return error, info;
+  return info;
 }
 
 /***/ }),

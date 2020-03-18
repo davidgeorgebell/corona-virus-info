@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1870,24 +1870,24 @@ const Layout = props => __jsx("div", {
 
 /***/ }),
 
-/***/ "./src/pages/index.js":
+/***/ "./src/pages/about.js":
 /*!****************************!*\
-  !*** ./src/pages/index.js ***!
+  !*** ./src/pages/about.js ***!
   \****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Index; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return About; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Layout */ "./src/components/Layout.js");
-var _jsxFileName = "/Users/david/Desktop/Projects/corona-virus/src/pages/index.js";
+var _jsxFileName = "/Users/david/Desktop/Projects/corona-virus/src/pages/about.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-function Index() {
+function About() {
   return __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
@@ -1900,19 +1900,19 @@ function Index() {
       lineNumber: 6
     },
     __self: this
-  }, "Hello Next.js"));
+  }, "This is the about page"));
 }
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!**********************************!*\
-  !*** multi ./src/pages/index.js ***!
+  !*** multi ./src/pages/about.js ***!
   \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/david/Desktop/Projects/corona-virus/src/pages/index.js */"./src/pages/index.js");
+module.exports = __webpack_require__(/*! /Users/david/Desktop/Projects/corona-virus/src/pages/about.js */"./src/pages/about.js");
 
 
 /***/ }),
@@ -1973,4 +1973,4 @@ module.exports = require("url");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=about.js.map

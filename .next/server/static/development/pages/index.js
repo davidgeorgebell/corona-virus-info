@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1795,60 +1795,43 @@ function CountrySelect() {
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('GBR');
   const countries = Object(_utils_useFetch__WEBPACK_IMPORTED_MODULE_1__["default"])('https://covid19.mathdro.id/api/countries');
   if (!countries) return null;
-  const countryArr = Object.entries(countries.countries).map(([key, value]) => {
-    return {
-      name: `${key}`,
-      code: `${value}`
-    };
-  });
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 12
     },
     __self: this
   }, __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 13
     },
     __self: this
   }, "Showing: ", country), __jsx("select", {
     onChange: event => setCountry(event.target.value),
-    defaultValue: {
-      name: country
-    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 14
     },
     __self: this
-  }, countryArr.map(country => __jsx("option", {
-    value: country.code,
-    key: country.name,
+  }, Object.entries(countries.countries).map(([key, value]) => __jsx("option", {
+    selected: country === countries.iso3[value],
+    value: countries.iso3[value],
+    key: key,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 16
     },
     __self: this
-  }, country.name))), __jsx(_Info__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, key))), __jsx(_Info__WEBPACK_IMPORTED_MODULE_2__["default"], {
     url: `https://covid19.mathdro.id/api/countries/${country}`,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 24
     },
     __self: this
   }));
-} // {
-//   Object.entries(countryArr).map(([key, value]) => (
-//     <option
-//       //   selected={country === countries.iso3[value]}
-//       value={countries.iso3[value]}
-//       key={key}>
-//       {key}
-//     </option>
-//   ));
-// }
+}
 
 /***/ }),
 
@@ -2151,7 +2134,7 @@ function useFetch(url) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!**********************************!*\
   !*** multi ./src/pages/index.js ***!
   \**********************************/

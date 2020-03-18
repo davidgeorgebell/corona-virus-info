@@ -8,22 +8,16 @@ export default function CountrySelect() {
 
   if (!countries) return null;
 
-  const countryArr = Object.entries(countries.countries).map(([key, value]) => {
-    return {
-      name: `${key}`,
-      code: `${value}`
-    };
-  });
-
   return (
     <div>
       <h2>Showing: {country}</h2>
-      <select
-        onChange={(event) => setCountry(event.target.value)}
-        defaultValue={{ name: country }}>
-        {countryArr.map((country) => (
-          <option value={country.code} key={country.name}>
-            {country.name}
+      <select onChange={(event) => setCountry(event.target.value)}>
+        {Object.entries(countries.countries).map(([key, value]) => (
+          <option
+            selected={country === countries.iso3[value]}
+            value={countries.iso3[value]}
+            key={key}>
+            {key}
           </option>
         ))}
       </select>
@@ -31,14 +25,3 @@ export default function CountrySelect() {
     </div>
   );
 }
-
-// {
-//   Object.entries(countryArr).map(([key, value]) => (
-//     <option
-//       //   selected={country === countries.iso3[value]}
-//       value={countries.iso3[value]}
-//       key={key}>
-//       {key}
-//     </option>
-//   ));
-// }

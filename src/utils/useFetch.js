@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 
 export default function useFetch(url) {
-  const [info, setInfo] = useState(null);
-  const [error, setError] = useState(null);
+  const [info, setInfo] = useState();
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     console.log('Mounting or Updating');
+    setLoading(true);
     const fetchData = async () => {
       try {
         const res = await fetch(url);
@@ -16,6 +18,7 @@ export default function useFetch(url) {
       }
     };
     fetchData();
-  }, []);
-  return info;
+    setLoading(false);
+  }, [url]);
+  return error, info;
 }

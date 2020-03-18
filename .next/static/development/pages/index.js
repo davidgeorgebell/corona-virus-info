@@ -4386,37 +4386,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_useFetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/useFetch */ "./src/utils/useFetch.js");
+/* harmony import */ var _Info__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Info */ "./src/components/Info.js");
 
 var _jsxFileName = "/Users/david/Desktop/Projects/corona-virus/src/components/CountrySelect.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
+
+
 function CountrySelect() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])('GBR'),
+      country = _useState[0],
+      setCountry = _useState[1];
+
   var countries = Object(_utils_useFetch__WEBPACK_IMPORTED_MODULE_2__["default"])('https://covid19.mathdro.id/api/countries');
-  console.log(countries);
-  if (!countries) return __jsx("p", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 6
-    },
-    __self: this
-  }, "Loading");
+  if (!countries) return null;
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 11
     },
     __self: this
-  }, __jsx("p", {
+  }, __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 12
     },
     __self: this
-  }, "Countries:"), __jsx("select", {
+  }, "Showing: ", country), __jsx("select", {
+    onChange: function onChange(event) {
+      return setCountry(event.target.value);
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 13
     },
     __self: this
   }, Object.entries(countries.countries).map(function (_ref) {
@@ -4425,15 +4428,23 @@ function CountrySelect() {
         code = _ref2[1];
 
     return __jsx("option", {
-      value: code,
+      selected: country === countries.iso3[code],
+      value: countries.iso3[code],
       key: name,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 12
+        lineNumber: 15
       },
       __self: this
     }, name);
-  })));
+  })), __jsx(_Info__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    url: "https://covid19.mathdro.id/api/countries/".concat(country),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: this
+  }));
 }
 
 /***/ }),
@@ -4518,59 +4529,50 @@ var _jsxFileName = "/Users/david/Desktop/Projects/corona-virus/src/components/In
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-function Info() {
-  var info = Object(_utils_useFetch__WEBPACK_IMPORTED_MODULE_1__["default"])('https://covid19.mathdro.id/api/');
-  if (!info) return __jsx("p", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 5
-    },
-    __self: this
-  }, "Loading");
-  return __jsx("div", {
-    className: "info-wrapper",
+function Info(_ref) {
+  var url = _ref.url;
+  var info = Object(_utils_useFetch__WEBPACK_IMPORTED_MODULE_1__["default"])(url);
+  var error = Object(_utils_useFetch__WEBPACK_IMPORTED_MODULE_1__["default"])(url);
+  if (!info) return null;
+  if (error > 0) return __jsx("p", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 7
     },
     __self: this
-  }, __jsx("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8
-    },
-    __self: this
-  }, __jsx("h3", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9
-    },
-    __self: this
-  }, "Confirmed:"), __jsx("span", {
+  }, "Error");
+  return __jsx("div", {
+    className: "info-wrapper",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
     },
     __self: this
-  }, info.confirmed.value)), __jsx("div", {
+  }, __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 12
     },
     __self: this
-  }, __jsx("h3", {
+  }, "World Wide:"), __jsx("h3", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 13
     },
     __self: this
-  }, "Deaths:"), __jsx("span", {
+  }, "Confirmed:"), __jsx("span", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 14
     },
     __self: this
-  }, info.deaths.value)), __jsx("div", {
+  }, info.confirmed ? info.confirmed.value : 'Not available')), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 16
@@ -4582,13 +4584,31 @@ function Info() {
       lineNumber: 17
     },
     __self: this
-  }, "Recovered:"), __jsx("span", {
+  }, "Deaths:"), __jsx("span", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 18
     },
     __self: this
-  }, info.recovered.value)));
+  }, info.deaths ? info.deaths.value : 'Not available')), __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: this
+  }, __jsx("h3", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: this
+  }, "Recovered:"), __jsx("span", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: this
+  }, info.recovered ? info.recovered.value : 'Not available')));
 }
 
 /***/ }),
@@ -4665,6 +4685,7 @@ function Index() {
     },
     __self: this
   }, __jsx(_components_Info__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    url: "https://covid19.mathdro.id/api/",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8
@@ -4698,16 +4719,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function useFetch(url) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(null),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(),
       info = _useState[0],
       setInfo = _useState[1];
 
-  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(null),
+  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(),
       error = _useState2[0],
       setError = _useState2[1];
 
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false),
+      loading = _useState3[0],
+      setLoading = _useState3[1];
+
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     console.log('Mounting or Updating');
+    setLoading(true);
 
     var fetchData = function fetchData() {
       var res, json;
@@ -4744,8 +4770,9 @@ function useFetch(url) {
     };
 
     fetchData();
-  }, []);
-  return info;
+    setLoading(false);
+  }, [url]);
+  return error, info;
 }
 
 /***/ }),

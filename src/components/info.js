@@ -9,7 +9,6 @@ export default function Info({ url }) {
   return (
     <div className='info-wrapper'>
       <div>
-        <h1>World Wide:</h1>
         <h3>Confirmed:</h3>
         <span>{info.confirmed ? info.confirmed.value : 'Not available'}</span>
       </div>

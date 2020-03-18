@@ -5,6 +5,7 @@ import CountrySelect from '../components/CountrySelect';
 export default function Index() {
   return (
     <Layout>
+      <h1>World Wide:</h1>
       <Info url='https://covid19.mathdro.id/api/'></Info>
       <CountrySelect />
     </Layout>

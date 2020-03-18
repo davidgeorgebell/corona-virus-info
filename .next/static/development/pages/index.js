@@ -4424,19 +4424,19 @@ function CountrySelect() {
     __self: this
   }, Object.entries(countries.countries).map(function (_ref) {
     var _ref2 = Object(_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_ref, 2),
-        name = _ref2[0],
-        code = _ref2[1];
+        key = _ref2[0],
+        value = _ref2[1];
 
     return __jsx("option", {
-      selected: country === countries.iso3[code],
-      value: countries.iso3[code],
-      key: name,
+      selected: country === countries.iso3[value],
+      value: countries.iso3[value],
+      key: key,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 15
       },
       __self: this
-    }, name);
+    }, key);
   })), __jsx(_Info__WEBPACK_IMPORTED_MODULE_3__["default"], {
     url: "https://covid19.mathdro.id/api/countries/".concat(country),
     __source: {
@@ -4554,58 +4554,52 @@ function Info(_ref) {
       lineNumber: 11
     },
     __self: this
-  }, __jsx("h1", {
+  }, __jsx("h3", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 12
     },
     __self: this
-  }, "World Wide:"), __jsx("h3", {
+  }, "Confirmed:"), __jsx("span", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 13
     },
     __self: this
-  }, "Confirmed:"), __jsx("span", {
+  }, info.confirmed ? info.confirmed.value : 'Not available')), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 15
     },
     __self: this
-  }, info.confirmed ? info.confirmed.value : 'Not available')), __jsx("div", {
+  }, __jsx("h3", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 16
     },
     __self: this
-  }, __jsx("h3", {
+  }, "Deaths:"), __jsx("span", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 17
     },
     __self: this
-  }, "Deaths:"), __jsx("span", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 18
-    },
-    __self: this
   }, info.deaths ? info.deaths.value : 'Not available')), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 19
     },
     __self: this
   }, __jsx("h3", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 20
     },
     __self: this
   }, "Recovered:"), __jsx("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 21
     },
     __self: this
   }, info.recovered ? info.recovered.value : 'Not available')));
@@ -4684,17 +4678,23 @@ function Index() {
       lineNumber: 7
     },
     __self: this
-  }, __jsx(_components_Info__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    url: "https://covid19.mathdro.id/api/",
+  }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8
     },
     __self: this
-  }), __jsx(_components_CountrySelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, "World Wide:"), __jsx(_components_Info__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    url: "https://covid19.mathdro.id/api/",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9
+    },
+    __self: this
+  }), __jsx(_components_CountrySelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
     },
     __self: this
   }));

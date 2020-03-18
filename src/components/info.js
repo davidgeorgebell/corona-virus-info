@@ -1,9 +1,8 @@
 import useFetch from '../utils/useFetch';
 
-export default function Info({ url }) {
-  const { info, error } = useFetch(url);
-  console.log(info, error);
-  if (error) return <p>Error...</p>;
+export default function Info() {
+  const info = useFetch('https://covid19.mathdro.id/api/');
+  if (!info) return <p>Loading</p>;
   return (
     <div className='info-wrapper'>
       <div>

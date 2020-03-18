@@ -1,20 +1,18 @@
 import { useState, useEffect } from 'react';
 
-export default function useFetch(url) {
+export default function useFetch() {
   const [response, setResponse] = useState(null);
-  const [loading, setLoading] = useState(false);
+
   const [error, setError] = useState(null);
 
   useEffect(() => {
     console.log('Mounting or Updating');
     const fetchData = async () => {
-      setLoading(true);
       try {
-        const res = await fetch(url);
+        const res = await fetch('https://covid19.mathdro.id/api/');
         const json = await res.json();
         console.table(json);
         setResponse(json);
-        setLoading(false);
       } catch (error) {
         setError(error);
       }

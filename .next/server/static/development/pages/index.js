@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1801,18 +1801,12 @@ function CountrySelect() {
       lineNumber: 12
     },
     __self: this
-  }, __jsx("h2", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
-    },
-    __self: this
-  }, "Showing: ", country), __jsx("select", {
+  }, __jsx("select", {
     onChange: event => setCountry(event.target.value),
     defaultValue: country,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 13
     },
     __self: this
   }, Object.entries(countries.countries).map(([key, value]) => __jsx("option", {
@@ -1820,14 +1814,14 @@ function CountrySelect() {
     key: key,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 17
     },
     __self: this
   }, key))), __jsx(_Info__WEBPACK_IMPORTED_MODULE_2__["default"], {
     url: `https://covid19.mathdro.id/api/countries/${country}`,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 22
     },
     __self: this
   }));
@@ -1927,13 +1921,14 @@ function Info({
     __self: this
   }, "Error");
   return __jsx("div", {
-    className: "info-wrapper",
+    className: "info",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
     },
     __self: this
   }, __jsx("div", {
+    className: "info__section",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 11
@@ -1952,6 +1947,7 @@ function Info({
     },
     __self: this
   }, info.confirmed ? info.confirmed.value : 'Not available')), __jsx("div", {
+    className: "info__section",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 15
@@ -1970,6 +1966,7 @@ function Info({
     },
     __self: this
   }, info.deaths ? info.deaths.value : 'Not available')), __jsx("div", {
+    className: "info__section",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 19
@@ -2008,23 +2005,18 @@ var _jsxFileName = "/Users/david/Desktop/Projects/corona-virus/src/components/La
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-const layoutStyle = {
-  margin: 20,
-  padding: 20,
-  border: '1px solid #DDD'
-};
 
 const Layout = props => __jsx("div", {
-  style: layoutStyle,
+  className: "layout",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 10
+    lineNumber: 4
   },
   __self: undefined
 }, __jsx(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 11
+    lineNumber: 5
   },
   __self: undefined
 }), props.children);
@@ -2062,22 +2054,37 @@ function Index() {
     },
     __self: this
   }, __jsx("h1", {
+    className: "index__title",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8
+    },
+    __self: this
+  }, "COVID-19 Tracker"), __jsx("h2", {
+    className: "index__sub",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
     },
     __self: this
   }, "World Totals:"), __jsx(_components_Info__WEBPACK_IMPORTED_MODULE_1__["default"], {
     url: "https://covid19.mathdro.id/api/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 10
     },
     __self: this
-  }), __jsx(_components_CountrySelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), __jsx("h2", {
+    className: "index__sub",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 11
+    },
+    __self: this
+  }, "Search a Country:"), __jsx(_components_CountrySelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
     },
     __self: this
   }));
@@ -2134,7 +2141,7 @@ function useFetch(url) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!**********************************!*\
   !*** multi ./src/pages/index.js ***!
   \**********************************/

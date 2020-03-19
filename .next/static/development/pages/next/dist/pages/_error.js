@@ -816,7 +816,7 @@ module.exports = (__webpack_require__(/*! dll-reference dll_82519ec661270f7f484f
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!**************************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fnext%2Fdist%2Fpages%2F_error&absolutePagePath=%2FUsers%2Fdavid%2FDesktop%2FProjects%2Fcorona-virus%2Fnode_modules%2Fnext%2Fdist%2Fpages%2F_error.js ***!
   \**************************************************************************************************************************************************************************************************/
@@ -839,5 +839,5 @@ module.exports = dll_82519ec661270f7f484f;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=_error.js.map

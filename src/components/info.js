@@ -7,16 +7,16 @@ export default function Info({ url }) {
   if (error > 0) return <p>Error</p>;
 
   return (
-    <div className='info-wrapper'>
-      <div>
+    <div className='info'>
+      <div className='info__section'>
         <h3>Confirmed:</h3>
         <span>{info.confirmed ? info.confirmed.value : 'Not available'}</span>
       </div>
-      <div>
+      <div className='info__section'>
         <h3>Deaths:</h3>
         <span>{info.deaths ? info.deaths.value : 'Not available'}</span>
       </div>
-      <div>
+      <div className='info__section'>
         <h3>Recovered:</h3>
         <span>{info.recovered ? info.recovered.value : 'Not available'}</span>
       </div>

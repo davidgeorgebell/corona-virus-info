@@ -10,7 +10,6 @@ export default function CountrySelect() {
 
   return (
     <div>
-      <h2>Showing: {country}</h2>
       <select
         onChange={(event) => setCountry(event.target.value)}
         defaultValue={country}>

@@ -4407,20 +4407,14 @@ function CountrySelect() {
       lineNumber: 12
     },
     __self: this
-  }, __jsx("h2", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
-    },
-    __self: this
-  }, "Showing: ", country), __jsx("select", {
+  }, __jsx("select", {
     onChange: function onChange(event) {
       return setCountry(event.target.value);
     },
     defaultValue: country,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 13
     },
     __self: this
   }, Object.entries(countries.countries).map(function (_ref) {
@@ -4433,7 +4427,7 @@ function CountrySelect() {
       key: key,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
+        lineNumber: 17
       },
       __self: this
     }, key);
@@ -4441,7 +4435,7 @@ function CountrySelect() {
     url: "https://covid19.mathdro.id/api/countries/".concat(country),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 22
     },
     __self: this
   }));
@@ -4542,13 +4536,14 @@ function Info(_ref) {
     __self: this
   }, "Error");
   return __jsx("div", {
-    className: "info-wrapper",
+    className: "info",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
     },
     __self: this
   }, __jsx("div", {
+    className: "info__section",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 11
@@ -4567,6 +4562,7 @@ function Info(_ref) {
     },
     __self: this
   }, info.confirmed ? info.confirmed.value : 'Not available')), __jsx("div", {
+    className: "info__section",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 15
@@ -4585,6 +4581,7 @@ function Info(_ref) {
     },
     __self: this
   }, info.deaths ? info.deaths.value : 'Not available')), __jsx("div", {
+    className: "info__section",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 19
@@ -4623,24 +4620,19 @@ var _jsxFileName = "/Users/david/Desktop/Projects/corona-virus/src/components/La
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-var layoutStyle = {
-  margin: 20,
-  padding: 20,
-  border: '1px solid #DDD'
-};
 
 var Layout = function Layout(props) {
   return __jsx("div", {
-    style: layoutStyle,
+    className: "layout",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 4
     },
     __self: this
   }, __jsx(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 5
     },
     __self: this
   }), props.children);
@@ -4679,22 +4671,37 @@ function Index() {
     },
     __self: this
   }, __jsx("h1", {
+    className: "index__title",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8
+    },
+    __self: this
+  }, "COVID-19 Tracker"), __jsx("h2", {
+    className: "index__sub",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
     },
     __self: this
   }, "World Totals:"), __jsx(_components_Info__WEBPACK_IMPORTED_MODULE_1__["default"], {
     url: "https://covid19.mathdro.id/api/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 10
     },
     __self: this
-  }), __jsx(_components_CountrySelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), __jsx("h2", {
+    className: "index__sub",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 11
+    },
+    __self: this
+  }, "Search a Country:"), __jsx(_components_CountrySelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
     },
     __self: this
   }));
@@ -4778,7 +4785,7 @@ function useFetch(url) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!**********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fdavid%2FDesktop%2FProjects%2Fcorona-virus%2Fsrc%2Fpages%2Findex.js ***!
   \**********************************************************************************************************************************************/
@@ -4801,5 +4808,5 @@ module.exports = dll_82519ec661270f7f484f;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

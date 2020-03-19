@@ -919,6 +919,7 @@ function CountrySelect() {
     __self: this
   }, __jsx("select", {
     className: "selector",
+    "aria-label": "Country Select",
     onChange: function onChange(event) {
       return setCountry(event.target.value);
     },
@@ -939,7 +940,7 @@ function CountrySelect() {
       key: key,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
+        lineNumber: 19
       },
       __self: this
     }, key);
@@ -947,7 +948,7 @@ function CountrySelect() {
     url: "https://covid19.mathdro.id/api/countries/".concat(country),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 27
     },
     __self: this
   }));
@@ -1226,7 +1227,7 @@ function useFetch(url) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!**********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fdavid%2FDesktop%2FProjects%2Fcorona-virus%2Fsrc%2Fpages%2Findex.js ***!
   \**********************************************************************************************************************************************/
@@ -1249,5 +1250,5 @@ module.exports = dll_82519ec661270f7f484f;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

@@ -12,6 +12,7 @@ export default function CountrySelect() {
     <div>
       <select
         className='selector'
+        aria-label='Country Select'
         onChange={(event) => setCountry(event.target.value)}
         defaultValue={country}>
         {Object.entries(countries.countries).map(([key, value]) => (

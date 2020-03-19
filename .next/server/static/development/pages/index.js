@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -128,6 +128,7 @@ function CountrySelect() {
     __self: this
   }, __jsx("select", {
     className: "selector",
+    "aria-label": "Country Select",
     onChange: event => setCountry(event.target.value),
     defaultValue: country,
     __source: {
@@ -141,14 +142,14 @@ function CountrySelect() {
     key: key,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 19
     },
     __self: this
   }, key))), __jsx(_Info__WEBPACK_IMPORTED_MODULE_2__["default"], {
     url: `https://covid19.mathdro.id/api/countries/${country}`,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 27
     },
     __self: this
   }));
@@ -399,7 +400,7 @@ function useFetch(url) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!**********************************!*\
   !*** multi ./src/pages/index.js ***!
   \**********************************/

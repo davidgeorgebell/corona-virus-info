@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1809,25 +1809,25 @@ function CountrySelect() {
     __self: this
   }, "Showing: ", country), __jsx("select", {
     onChange: event => setCountry(event.target.value),
+    defaultValue: country,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 14
     },
     __self: this
   }, Object.entries(countries.countries).map(([key, value]) => __jsx("option", {
-    selected: country === countries.iso3[value],
     value: countries.iso3[value],
     key: key,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 18
     },
     __self: this
   }, key))), __jsx(_Info__WEBPACK_IMPORTED_MODULE_2__["default"], {
     url: `https://covid19.mathdro.id/api/countries/${country}`,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 23
     },
     __self: this
   }));
@@ -2134,7 +2134,7 @@ function useFetch(url) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!**********************************!*\
   !*** multi ./src/pages/index.js ***!
   \**********************************/

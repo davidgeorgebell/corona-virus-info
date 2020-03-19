@@ -11,12 +11,11 @@ export default function CountrySelect() {
   return (
     <div>
       <h2>Showing: {country}</h2>
-      <select onChange={(event) => setCountry(event.target.value)}>
+      <select
+        onChange={(event) => setCountry(event.target.value)}
+        defaultValue={country}>
         {Object.entries(countries.countries).map(([key, value]) => (
-          <option
-            selected={country === countries.iso3[value]}
-            value={countries.iso3[value]}
-            key={key}>
+          <option value={countries.iso3[value]} key={key}>
             {key}
           </option>
         ))}

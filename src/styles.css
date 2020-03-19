@@ -5,10 +5,12 @@
   --charlie: #f78c6c;
   --delta: #82aaff;
   --border: #d6deeb;
+  --mainFont: 'Inconsolata', monospace;
 }
 body {
-  font-family: 'Inconsolata', monospace;
+  font-family: var(--mainFont);
   max-width: 100vw;
+  max-height: 100vh;
   margin: auto;
   background: var(--bg);
   color: var(--alpha);
@@ -22,8 +24,8 @@ h4 {
   color: var(--bravo);
 }
 .layout {
-  margin: 20px;
-  padding: 20px;
+  margin: 0;
+  padding: 0 20px;
   border: 1px solid var(--border);
 }
 .info {
@@ -34,6 +36,7 @@ h4 {
 .info__section {
   display: grid;
   padding: 2rem;
+  margin-bottom: 1rem;
   align-items: center;
   justify-items: center;
   text-align: center;
@@ -52,6 +55,30 @@ h4 {
   color: var(--delta);
 }
 
+.selector {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-align: center;
+  color: var(--delta);
+  text-decoration: underline;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: var(--bg);
+  font-family: var(--mainFont);
+  max-width: 100%;
+  width: 100%;
+  height: 5rem;
+  cursor: pointer;
+}
+.selector__option {
+  cursor: pointer;
+  color: var(--border);
+}
 @media (max-width: 800px) {
   .info {
     grid-template-columns: 1fr;
